@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conseil Foulard</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f8f8f8;
+      color: #333;
+      text-align: center;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.2rem;
+    }
+    p.slogan {
+      font-size: 1rem;
+      color: #777;
+      margin-bottom: 2rem;
+    }
+    .section {
+      margin-bottom: 1.5rem;
+    }
+    label {
+      display: block;
+      margin: 0.5rem 0 0.2rem;
+    }
+    select {
+      padding: 0.4rem;
+      font-size: 1rem;
+    }
+    button {
+      padding: 0.6rem 1.2rem;
+      background-color: #444;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 2rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Nom de ta boutique</h1>
+  <p class="slogan">Le foulard parfait pour chaque tenue</p>
+
+  <div class="section">
+    <label for="haut">Couleur du haut</label>
+    <select id="haut">
+      <option value="">-- Choisir --</option>
+      <option value="noir">Noir</option>
+      <option value="blanc">Blanc</option>
+      <option value="beige">Beige</option>
+      <option value="bleu">Bleu</option>
+      <option value="rose">Rose</option>
+    </select>
+
+    <label for="bas">Couleur du bas</label>
+    <select id="bas">
+      <option value="">-- Choisir --</option>
+      <option value="noir">Noir</option>
+      <option value="blanc">Blanc</option>
+      <option value="beige">Beige</option>
+      <option value="bleu">Bleu</option>
+      <option value="rose">Rose</option>
+    </select>
+
+    <label for="sac">Couleur du sac (optionnel)</label>
+    <select id="sac">
+      <option value="">-- Choisir --</option>
+      <option value="marron">Marron</option>
+      <option value="doré">Doré</option>
+      <option value="argenté">Argenté</option>
+    </select>
+
+    <label for="chaussures">Couleur des chaussures (optionnel)</label>
+    <select id="chaussures">
+      <option value="">-- Choisir --</option>
+      <option value="noir">Noir</option>
+      <option value="marron">Marron</option>
+      <option value="beige">Beige</option>
+    </select>
+
+    <button onclick="suggereFoulard()">Suggérer un foulard</button>
+    <div class="result" id="resultat"></div>
+  </div>
+
+  <script>
+    function suggereFoulard() {
+      const haut = document.getElementById("haut").value;
+      const bas = document.getElementById("bas").value;
+      const sac = document.getElementById("sac").value;
+      const chaussures = document.getElementById("chaussures").value;
+
+      // Exemple simple de logique (tu peux enrichir ensuite)
+      let suggestions = [];
+
+      if ((haut === "beige" && bas === "noir") || haut === "blanc") {
+        suggestions.push("🧕 Foulard uni : Ivoire ou Chocolat");
+        suggestions.push("🎨 À motifs : Floral doré sur fond beige");
+      } else if (haut === "bleu") {
+        suggestions.push("🧕 Uni : Gris clair ou Argent");
+        suggestions.push("🎨 À motifs : Bleu marine avec lignes blanches");
+      } else if (haut === "rose") {
+        suggestions.push("🧕 Uni : Vieux rose ou blanc cassé");
+        suggestions.push("🎨 À motifs : Petits pois dorés sur fond rose");
+      } else {
+        suggestions.push("🧕 Uni : Couleur neutre comme beige, crème ou taupe");
+        suggestions.push("🎨 À motifs : Motif léger dans les tons assortis");
+      }
+
+      document.getElementById("resultat").innerHTML = suggestions.join("<br>");
+    }
+  </script>
+</body>
+</html>
